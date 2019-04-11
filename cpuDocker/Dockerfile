@@ -1,10 +1,10 @@
 # Image file
-FROM ubuntu:18.04
+FROM ubuntu:16.04
 
-MAINTAINER Yashio Kabashima
+LABEL Yashio Kabashima
 
-# COPY configuration files
-ADD ./.bashrc /root/.bashrc
+# add configuration files
+ADD ../.bashrc /root/.bashrc
 
 # RUN commands in container
 RUN apt-get update && apt-get install -y \

@@ -1,9 +1,9 @@
-# Image file
-FROM ubuntu:18.04
+# Image file ubuntu16.04
+FROM nvidia/cuda:9.0-cudnn7-runtime
 
-MAINTAINER Yashio Kabashima
+LABEL Yashio Kabashima
 
-# COPY configuration files
+# add configuration files
 ADD ./.bashrc /root/.bashrc
 
 # RUN commands in container
@@ -49,9 +49,10 @@ RUN pyenv rehash
 
 
 # upgrade pip
-ADD ./requirements.txt /root/requirements.txt
-RUN /root/.pyenv/shims/pip install --upgrade pip
-RUN /root/.pyenv/shims/pip install -r /root/requirements.txt
+ENV pip /root/.pyenv/shims/pip
+RUN $pip install --upgrade pip
+# ADD ./requirements.txt /root/requirements.txt
+# RUN /root/.pyenv/shims/pip install -r /root/requirements.txt
 
 # codec
 WORKDIR /
