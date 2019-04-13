@@ -1,0 +1,16 @@
+# Image file gpu
+FROM yashikab/cputensorflow:latest
+
+LABEL Yashio Kabashima
+
+# add configuration files
+ADD ./src/cpu_settings/requirements.txt /root/requirements.txt
+
+# install required pip packages
+# upgrade pip
+ENV pip /root/.pyenv/shims/pip
+RUN $pip install -r requirements.txt
+
+
+# set to home directory
+WORKDIR /root/

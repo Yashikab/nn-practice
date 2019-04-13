@@ -1,0 +1,26 @@
+version: '2.3'
+services:
+  gpu:
+    container_name: 'nn_gpu'
+    build:
+      context: "./"
+      dockerfile: "Dockerfile_gpu"
+    runtime: nvidia
+    volumes:
+      - ./src:/root/src
+      - ./dat/:/root/dat
+    command: /bin/bash
+    # continue to run
+    tty: true
+
+  cpu:
+    container_name: 'nn_cpu'
+    build:
+      context: "./"
+      dockerfile: "Dockerfile_cpu"
+    volumes:
+      - ./src:/root/src
+      - ./dat/:/root/dat
+    command: /bin/bash
+    # continue to run
+    tty: true
