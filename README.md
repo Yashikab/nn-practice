@@ -31,8 +31,8 @@ Using sample program: classification of mnist pictures. (python)
 
 ## Environment
 
-tensorflow version : 1.12
+tensorflow version : 1.13
 
-cuda : 9.0
+cuda : 10.1
 
 cudnn: 7
